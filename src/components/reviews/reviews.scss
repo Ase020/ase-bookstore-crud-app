@@ -1,0 +1,28 @@
+.review-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 10px;
+  border-radius: 6px;
+
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+
+  .rate {
+    font-size: 12px;
+  }
+
+  .user {
+    font-size: 14px;
+
+    span {
+      color: #adacac;
+    }
+  }
+
+  .comment {
+    font-family: "Inter", serif;
+    font-weight: 200;
+    font-size: 13px;
+    margin: 0;
+  }
+}

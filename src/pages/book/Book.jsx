@@ -4,6 +4,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 import "./book.scss";
+import { Reviews } from "../../components";
 
 // init AOS animation
 AOS.init({
@@ -17,6 +18,10 @@ const Book = () => {
   const toggle = () => {
     setShowAllDesc((prev) => !prev);
   };
+
+  const fakeData = [
+    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
+  ];
 
   const description = `Why does it feel like no matter what happens in American politics,
   the Democrats still get their way? When he left Congress in 2017,
@@ -92,149 +97,9 @@ const Book = () => {
 
           <div className="reviews">
             <h4>Reviews</h4>
-            <div className="review-container">
-              <span className="rate">⭐ 7.2</span>
-              <span className="user">
-                Axelrod <span>says:</span>
-              </span>
-              <p className="comment">
-                To take back our country, the American people need to understand
-                that they’re in a new fight. But it’s a fight that’s still
-                eminently winnable, and Chaffetz reveals the playbook.
-              </p>
-            </div>
-
-            <div className="review-container">
-              <span className="rate">⭐ 7.2</span>
-              <span className="user">
-                Axelrod <span>says:</span>
-              </span>
-              <p className="comment">
-                To take back our country, the American people need to understand
-                that they’re in a new fight. But it’s a fight that’s still
-                eminently winnable, and Chaffetz reveals the playbook.
-              </p>
-            </div>
-
-            <div className="review-container">
-              <span className="rate">⭐ 7.2</span>
-              <span className="user">
-                Axelrod <span>says:</span>
-              </span>
-              <p className="comment">
-                To take back our country, the American people need to understand
-                that they’re in a new fight. But it’s a fight that’s still
-                eminently winnable, and Chaffetz reveals the playbook.
-              </p>
-            </div>
-
-            <div className="review-container">
-              <span className="rate">⭐ 7.2</span>
-              <span className="user">
-                Axelrod <span>says:</span>
-              </span>
-              <p className="comment">
-                To take back our country, the American people need to understand
-                that they’re in a new fight. But it’s a fight that’s still
-                eminently winnable, and Chaffetz reveals the playbook.
-              </p>
-            </div>
-
-            <div className="review-container">
-              <span className="rate">⭐ 7.2</span>
-              <span className="user">
-                Axelrod <span>says:</span>
-              </span>
-              <p className="comment">
-                To take back our country, the American people need to understand
-                that they’re in a new fight. But it’s a fight that’s still
-                eminently winnable, and Chaffetz reveals the playbook.
-              </p>
-            </div>
-
-            <div className="review-container">
-              <span className="rate">⭐ 7.2</span>
-              <span className="user">
-                Axelrod <span>says:</span>
-              </span>
-              <p className="comment">
-                To take back our country, the American people need to understand
-                that they’re in a new fight. But it’s a fight that’s still
-                eminently winnable, and Chaffetz reveals the playbook.
-              </p>
-            </div>
-
-            <div className="review-container">
-              <span className="rate">⭐ 7.2</span>
-              <span className="user">
-                Axelrod <span>says:</span>
-              </span>
-              <p className="comment">
-                To take back our country, the American people need to understand
-                that they’re in a new fight. But it’s a fight that’s still
-                eminently winnable, and Chaffetz reveals the playbook.
-              </p>
-            </div>
-
-            <div className="review-container">
-              <span className="rate">⭐ 7.2</span>
-              <span className="user">
-                Axelrod <span>says:</span>
-              </span>
-              <p className="comment">
-                To take back our country, the American people need to understand
-                that they’re in a new fight. But it’s a fight that’s still
-                eminently winnable, and Chaffetz reveals the playbook.
-              </p>
-            </div>
-
-            <div className="review-container">
-              <span className="rate">⭐ 7.2</span>
-              <span className="user">
-                Axelrod <span>says:</span>
-              </span>
-              <p className="comment">
-                To take back our country, the American people need to understand
-                that they’re in a new fight. But it’s a fight that’s still
-                eminently winnable, and Chaffetz reveals the playbook.
-              </p>
-            </div>
-
-            <div className="review-container">
-              <span className="rate">⭐ 7.2</span>
-              <span className="user">
-                Axelrod <span>says:</span>
-              </span>
-              <p className="comment">
-                To take back our country, the American people need to understand
-                that they’re in a new fight. But it’s a fight that’s still
-                eminently winnable, and Chaffetz reveals the playbook.
-              </p>
-            </div>
-
-            <div className="review-container">
-              <span className="rate">⭐ 7.2</span>
-              <span className="user">
-                Axelrod <span>says:</span>
-              </span>
-              <p className="comment">
-                To take back our country, the American people need to understand
-                that they’re in a new fight. But it’s a fight that’s still
-                eminently winnable, and Chaffetz reveals the playbook.
-              </p>
-            </div>
-
-            <div className="review-container">
-              <span className="rate">⭐ 7.2</span>
-              <span className="user">
-                Axelrod <span>says:</span>
-              </span>
-              <p className="comment">
-                To take back our country, the American people need to understand
-                that they’re in a new fight. But it’s a fight that’s still
-                eminently winnable, and Chaffetz reveals the playbook.
-              </p>
-            </div>
+            {fakeData.map((data, i) => (
+              <Reviews key={i} />
+            ))}
           </div>
         </div>
       </div>
