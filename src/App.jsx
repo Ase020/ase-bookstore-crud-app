@@ -18,11 +18,11 @@ function App() {
           element: <Book />,
         },
         {
-          path: "/book/add?",
+          path: "/book/add",
           element: <Add />,
         },
         {
-          path: "/books/:id/edit?",
+          path: "/books/:id/edit",
           element: <Edit />,
         },
       ],
