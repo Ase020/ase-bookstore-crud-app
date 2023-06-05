@@ -1,0 +1,24 @@
+.navbar {
+  width: 1240px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+
+  box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
+
+  .logo {
+    color: #d6001c;
+    font-size: 18px;
+
+    span {
+      text-transform: uppercase;
+    }
+  }
+
+  .user-bar {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+}
