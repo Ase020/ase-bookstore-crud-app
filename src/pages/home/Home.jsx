@@ -1,7 +1,7 @@
 import "./home.scss";
+import { BookLayout } from "../../components";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { BookLayout } from "../../components";
 
 // init AOS animation
 AOS.init({
