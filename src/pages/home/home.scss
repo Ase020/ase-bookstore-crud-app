@@ -2,4 +2,13 @@
   width: 1240px;
   border: 1px solid red;
   padding: 20px;
+
+  .title {
+    font-size: 72px;
+    background: linear-gradient(to bottom, #d6001c, #bbb);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+  }
 }
