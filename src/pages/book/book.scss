@@ -1,3 +1,73 @@
 .book {
-  background: blue;
+  width: 1240px;
+  height: 100vh;
+  display: flex;
+
+  .image-wrapper {
+    flex: 2;
+    display: flex;
+    position: relative;
+
+    img {
+      object-fit: cover;
+      width: 100%;
+    }
+
+    .rating {
+      padding: 10px;
+      background: #fff0de;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .book-details-container {
+    flex: 3;
+    overflow: scroll;
+    scroll-behavior: smooth;
+    padding: 20px 10px;
+
+    .details-intro {
+      top: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .intro {
+        margin: 0;
+      }
+
+      .buttons-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        button {
+          padding: 5px 8px;
+          border: none;
+          cursor: pointer;
+          color: white;
+          border-radius: 3px;
+        }
+
+        .edit {
+          background: #adacac;
+        }
+
+        .delete {
+          background: #b1454a;
+        }
+      }
+    }
+
+    .book-details {
+      margin-top: 50px;
+      padding-left: 20px;
+    }
+  }
 }
