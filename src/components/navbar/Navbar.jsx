@@ -2,8 +2,11 @@ import {
   PersonOutlined,
   SearchOutlined,
   LightModeOutlined,
+  AutoStoriesOutlined,
+  AddOutlined,
   // DarkModeOutlined,
 } from "@mui/icons-material";
+import { Link } from "react-router-dom";
 
 import "./navbar.scss";
 
@@ -26,6 +29,9 @@ const Navbar = () => {
       </a>
 
       <div className="user-bar">
+        <Link className="add" to="book/add">
+          <AddOutlined /> <AutoStoriesOutlined />
+        </Link>
         <SearchOutlined style={{ cursor: "pointer" }} />
         <PersonOutlined style={{ cursor: "pointer" }} />
         <LightModeOutlined style={{ cursor: "pointer" }} />

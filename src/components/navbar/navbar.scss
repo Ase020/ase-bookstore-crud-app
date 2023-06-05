@@ -20,5 +20,11 @@
     display: flex;
     align-items: center;
     gap: 30px;
+
+    .add {
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
   }
 }
