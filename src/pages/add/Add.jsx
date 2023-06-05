@@ -29,8 +29,8 @@ const Add = () => {
         <textarea
           className="textarea"
           placeholder="Synopsis"
-          cols="30"
-          rows="10"
+          cols="100"
+          rows="20"
         ></textarea>
         <div className="button-container">
           <button type="submit" className="save">

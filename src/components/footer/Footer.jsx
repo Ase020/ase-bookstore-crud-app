@@ -1,10 +1,19 @@
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+// init AOS animation
+AOS.init({
+  duration: 1000,
+  offset: 100,
+});
+
 import "./footer.scss";
 
 const Footer = () => {
   return (
     <footer className="footer">
       <div className="wrapper">
-        <div className="footer-info">
+        <div className="footer-info" data-aos="fade-right">
           <h2 className="logo">aseBOOKSTORE</h2>
           <p className="footnote">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -14,7 +23,7 @@ const Footer = () => {
           </p>
         </div>
 
-        <div className="footer-links">
+        <div className="footer-links" data-aos="fade-down">
           <div className="link">
             <h4 className="header">About Us</h4>
             <p>Careers</p>
