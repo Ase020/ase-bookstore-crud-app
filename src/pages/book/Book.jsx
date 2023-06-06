@@ -63,7 +63,11 @@ const Book = () => {
           <p className="intro">Books Details</p>
 
           <div className="buttons-wrapper">
-            <Link to="/books/1/edit?">
+            <Link
+              to={`/books/${id}/edit?bookObj=${encodeURIComponent(
+                JSON.stringify(book)
+              )}`}
+            >
               <button className="edit">Edit</button>
             </Link>
             <button className="delete">Delete</button>
