@@ -13,11 +13,15 @@ import "./edit.scss";
 const Edit = () => {
   const navigate = useNavigate();
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <div className="add-book" data-aos="fade-up">
       <h2>Edit Book</h2>
 
-      <form className="form" data-aos="flip-right">
+      <form className="form" data-aos="flip-right" onSubmit={handleSubmit}>
         <input type="text" placeholder="Title" className="input" />
         <input type="text" placeholder="Author" className="input" />
         <input type="text" placeholder="Genre" className="input" />
