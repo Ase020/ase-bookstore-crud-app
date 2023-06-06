@@ -1,5 +1,5 @@
 import "./home.scss";
-import { BookLayout } from "../../components";
+import { BookLayout, Loading } from "../../components";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect, useState } from "react";
@@ -12,11 +12,17 @@ AOS.init({
 
 const Home = () => {
   const [books, setBooks] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
+
     fetch("http://localhost:9292/books")
       .then((res) => res.json())
-      .then((data) => setBooks(data))
+      .then((data) => {
+        setBooks(data);
+        setLoading(false);
+      })
       .catch((err) => console.log(err));
   }, []);
 
@@ -37,21 +43,25 @@ const Home = () => {
         <li>New Release</li>
       </ul>
 
-      <div className="books-wrapper" data-aos="zoom-in-down">
-        {books.map((book) => (
-          <BookLayout
-            key={book.id}
-            id={book.id}
-            title={book.title}
-            genre={book.genre}
-            author={book.author}
-            image={book.image}
-            price={book.price}
-            synopsis={book.synopsis}
-            reviews={book.reviews}
-          />
-        ))}
-      </div>
+      {loading ? (
+        <Loading />
+      ) : (
+        <div className="books-wrapper" data-aos="zoom-in-down">
+          {books.map((book) => (
+            <BookLayout
+              key={book.id}
+              id={book.id}
+              title={book.title}
+              genre={book.genre}
+              author={book.author}
+              image={book.image}
+              price={book.price}
+              synopsis={book.synopsis}
+              reviews={book.reviews}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 };

@@ -53,7 +53,9 @@ const Book = () => {
     <div className="book">
       <div className="image-wrapper" data-aos="fade-right">
         <img src={book.image} alt={book.title} />
-        <span className="rating">{averageRating}</span>
+        <span className="rating">
+          {book?.reviews?.length > 0 ? averageRating : "0.0"}
+        </span>
       </div>
 
       <div className="book-details-container" data-aos="fade-left">
@@ -94,9 +96,13 @@ const Book = () => {
 
           <div className="reviews">
             <h4>Reviews</h4>
-            {book.reviews?.map((review) => (
-              <Reviews key={review.id} review={review} />
-            ))}
+            {book.reviews?.length > 0 ? (
+              book.reviews?.map((review) => (
+                <Reviews key={review.id} review={review} />
+              ))
+            ) : (
+              <p className="no-reviews">Not yet reviewed!</p>
+            )}
           </div>
         </div>
       </div>

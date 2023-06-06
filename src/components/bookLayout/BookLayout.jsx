@@ -6,7 +6,7 @@ import "./bookLayout.scss";
 // eslint-disable-next-line react/prop-types
 const BookLayout = ({ id, title, author, image, price, reviews }) => {
   // calculate average ratings
-  const ratingsArray = reviews.map((review) => review.rating);
+  const ratingsArray = reviews?.map((review) => review.rating);
   const sum = ratingsArray.reduce(
     (accumulator, currentValue) => accumulator + currentValue,
     0
@@ -28,7 +28,9 @@ const BookLayout = ({ id, title, author, image, price, reviews }) => {
             })}
           </em>
         </p>
-        <span className="rating">{averageRating}</span>
+        <span className="rating">
+          {reviews.length > 0 ? averageRating : "0.0"}
+        </span>
       </div>
     </Link>
   );
