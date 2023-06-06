@@ -23,8 +23,6 @@ const Book = () => {
       .then((data) => setBook(data));
   }, [id]);
 
-  console.log(book.reviews);
-
   const toggle = () => {
     setShowAllDesc((prev) => !prev);
   };
@@ -41,7 +39,7 @@ const Book = () => {
 
   const displayedText = showAllDesc
     ? description
-    : description.slice(0, 250) + "...";
+    : description.slice(0, 200) + "...";
 
   return (
     <div className="book">

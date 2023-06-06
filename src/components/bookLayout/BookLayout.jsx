@@ -11,7 +11,13 @@ const BookLayout = ({ id, title, author, image, price }) => {
         <h4 className="book-title">{title}</h4>
         <i className="author">{author}</i>
         <p className="price">
-          Ksh. <em>{Math.floor(price * 120).toLocaleString("en-US")}</em>
+          Ksh.{" "}
+          <em>
+            {Math.floor(price * 120).toLocaleString("en-KE", {
+              style: "currency",
+              currency: "KES",
+            })}
+          </em>
         </p>
         <span className="rating">9.2</span>
       </div>
