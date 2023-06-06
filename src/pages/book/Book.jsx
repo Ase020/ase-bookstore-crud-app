@@ -41,11 +41,19 @@ const Book = () => {
     ? description
     : description.slice(0, 200) + "...";
 
+  // calculate average ratings
+  const ratingsArray = book.reviews?.map((review) => review.rating);
+  const sum = ratingsArray?.reduce(
+    (accumulator, currentValue) => accumulator + currentValue,
+    0
+  );
+  const averageRating = (sum / ratingsArray?.length).toFixed(1);
+
   return (
     <div className="book">
       <div className="image-wrapper" data-aos="fade-right">
         <img src={book.image} alt={book.title} />
-        <span className="rating">9.2</span>
+        <span className="rating">{averageRating}</span>
       </div>
 
       <div className="book-details-container" data-aos="fade-left">
@@ -64,7 +72,13 @@ const Book = () => {
           <h1 className="title">{book.title}</h1>
           <p className="genre">{book.genre}</p>
           <p className="price">
-            Ksh. <span>1,200</span>
+            Ksh.{" "}
+            <span>
+              {Math.floor(book.price * 120).toLocaleString("en-KE", {
+                style: "currency",
+                currency: "KES",
+              })}
+            </span>
           </p>
 
           <p className="desc">{displayedText}</p>

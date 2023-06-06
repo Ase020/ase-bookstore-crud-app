@@ -48,6 +48,7 @@ const Home = () => {
             image={book.image}
             price={book.price}
             synopsis={book.synopsis}
+            reviews={book.reviews}
           />
         ))}
       </div>

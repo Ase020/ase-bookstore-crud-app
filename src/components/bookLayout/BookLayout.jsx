@@ -1,9 +1,18 @@
+/* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 
 import "./bookLayout.scss";
 
 // eslint-disable-next-line react/prop-types
-const BookLayout = ({ id, title, author, image, price }) => {
+const BookLayout = ({ id, title, author, image, price, reviews }) => {
+  // calculate average ratings
+  const ratingsArray = reviews.map((review) => review.rating);
+  const sum = ratingsArray.reduce(
+    (accumulator, currentValue) => accumulator + currentValue,
+    0
+  );
+  const averageRating = (sum / ratingsArray.length).toFixed(1);
+
   return (
     <Link to={`/books/${id}`}>
       <div className="book-container">
@@ -19,7 +28,7 @@ const BookLayout = ({ id, title, author, image, price }) => {
             })}
           </em>
         </p>
-        <span className="rating">9.2</span>
+        <span className="rating">{averageRating}</span>
       </div>
     </Link>
   );
