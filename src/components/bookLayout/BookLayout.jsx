@@ -2,18 +2,16 @@ import { Link } from "react-router-dom";
 
 import "./bookLayout.scss";
 
-const BookLayout = () => {
+// eslint-disable-next-line react/prop-types
+const BookLayout = ({ id, title, author, image, price }) => {
   return (
-    <Link to="/books/1">
+    <Link to={`/books/${id}`}>
       <div className="book-container">
-        <img
-          src="https://images.pexels.com/photos/16999665/pexels-photo-16999665/free-photo-of-food-people-summer-garden.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
-          alt=""
-        />
-        <h4 className="book-title">Eloquent Javascript</h4>
-        <i className="author">Felix Nyalenda</i>
+        <img src={image} alt={title} />
+        <h4 className="book-title">{title}</h4>
+        <i className="author">{author}</i>
         <p className="price">
-          Ksh. <em>1,200</em>
+          Ksh. <em>{Math.floor(price * 120).toLocaleString("en-US")}</em>
         </p>
         <span className="rating">9.2</span>
       </div>

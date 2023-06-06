@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -14,42 +14,30 @@ AOS.init({
 
 const Book = () => {
   const [showAllDesc, setShowAllDesc] = useState(false);
+  const [book, setBook] = useState({});
+  const { id } = useParams();
+
+  useEffect(() => {
+    fetch(`http://localhost:9292/books/${id}`)
+      .then((res) => res.json())
+      .then((data) => setBook(data));
+  }, [id]);
+
+  console.log(book.reviews);
 
   const toggle = () => {
     setShowAllDesc((prev) => !prev);
   };
 
-  const fakeData = [
-    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-  ];
-
-  const description = `Why does it feel like no matter what happens in American politics,
+  const description = book.synopsis
+    ? book.synopsis
+    : `Why does it feel like no matter what happens in American politics,
   the Democrats still get their way? When he left Congress in 2017,
   Jason Chaffetz still thought elections could save us. For
   generations, conservatives have hoped that freedom-loving
   congressional majorities could turn back the tide and restore
   America’s liberties and prosperity. But now, he says, winning
-  elections will not be enough. Increasingly, the work of government
-  is being done by people outside the government—unelected power
-  brokers who are invisible to the American public but who pull the
-  strings, set the agendas, create the incentives, and write the rules
-  we must all live by. Using both government and non-governmental
-  institutions, leftists have bypassed the legislative process to
-  compel institutional compliance with partisan goals. The White House
-  or the Congress may change hands, but the left remains in power. In
-  The Puppeteers, Chaffetz reveals how: Susan Rice was put in charge
-  of using the bureaucracy to make sure Republicans never win another
-  election The federal government now could be deployed to harvest
-  ballots from Democrats President Biden hired a Blackrock executive
-  to run his economic agenda for the first two years of his presidency
-  State treasurers planned to use billions of government dollars to
-  “address climate change” and “racial inequality,” with almost no way
-  for voters to stop them Randi Weingarten makes more decisions for
-  the education department than people who actually work there
-  Electing the right leaders is no longer enough. To take back our
-  country, the American people need to understand that they’re in a
-  new fight. But it’s a fight that’s still eminently winnable, and
-  Chaffetz reveals the playbook.`;
+  elections will not be enough.`;
 
   const displayedText = showAllDesc
     ? description
@@ -58,10 +46,7 @@ const Book = () => {
   return (
     <div className="book">
       <div className="image-wrapper" data-aos="fade-right">
-        <img
-          src="https://images.pexels.com/photos/16999665/pexels-photo-16999665/free-photo-of-food-people-summer-garden.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
-          alt=""
-        />
+        <img src={book.image} alt={book.title} />
         <span className="rating">9.2</span>
       </div>
 
@@ -78,8 +63,8 @@ const Book = () => {
         </div>
 
         <div className="book-details">
-          <h1 className="title">Eloquent Javascript</h1>
-          <p className="genre">Fiction</p>
+          <h1 className="title">{book.title}</h1>
+          <p className="genre">{book.genre}</p>
           <p className="price">
             Ksh. <span>1,200</span>
           </p>
@@ -97,8 +82,8 @@ const Book = () => {
 
           <div className="reviews">
             <h4>Reviews</h4>
-            {fakeData.map((data, i) => (
-              <Reviews key={i} />
+            {book.reviews?.map((review) => (
+              <Reviews key={review.id} review={review} />
             ))}
           </div>
         </div>

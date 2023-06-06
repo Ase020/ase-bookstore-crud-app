@@ -2,6 +2,7 @@ import "./home.scss";
 import { BookLayout } from "../../components";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { useEffect, useState } from "react";
 
 // init AOS animation
 AOS.init({
@@ -10,10 +11,15 @@ AOS.init({
 });
 
 const Home = () => {
-  const fakeData = [
-    1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-    1, 1, 1, 1, 1, 1, 1,
-  ];
+  const [books, setBooks] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:9292/books")
+      .then((res) => res.json())
+      .then((data) => setBooks(data))
+      .catch((err) => console.log(err));
+  }, []);
+
   return (
     <div className="home">
       <h1 className="title" data-aos="fade-up">
@@ -32,8 +38,17 @@ const Home = () => {
       </ul>
 
       <div className="books-wrapper" data-aos="zoom-in-down">
-        {fakeData.map((data, i) => (
-          <BookLayout key={i} />
+        {books.map((book) => (
+          <BookLayout
+            key={book.id}
+            id={book.id}
+            title={book.title}
+            genre={book.genre}
+            author={book.author}
+            image={book.image}
+            price={book.price}
+            synopsis={book.synopsis}
+          />
         ))}
       </div>
     </div>
