@@ -38,8 +38,6 @@ const Edit = () => {
     }));
   };
 
-  console.log(book);
-
   const handleSubmit = (e) => {
     e.preventDefault();
     confirm(`Updated Book: ${book.title}?`);
@@ -54,7 +52,7 @@ const Edit = () => {
       .then((res) => {
         res.json();
         if (res.ok) {
-          // navigate(-1);
+          navigate(-1);
           console.log(res);
         } else {
           throw new Error("Failed to update book");

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -16,6 +16,7 @@ const Book = () => {
   const [showAllDesc, setShowAllDesc] = useState(false);
   const [book, setBook] = useState({});
   const { id } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch(`http://localhost:9292/books/${id}`)
@@ -25,6 +26,27 @@ const Book = () => {
 
   const toggle = () => {
     setShowAllDesc((prev) => !prev);
+  };
+
+  // handleDelete
+  const handleDelete = () => {
+    confirm("Are you sure you want this book?");
+
+    fetch(`http://localhost:9292/books/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => {
+        res.json();
+        if (res.ok) {
+          navigate("/");
+          alert("Book deleted successfully!");
+        } else {
+          throw new Error("Failed to delete book");
+        }
+      })
+      .then((data) => {
+        console.log(data);
+      });
   };
 
   const description = book.synopsis
@@ -70,7 +92,9 @@ const Book = () => {
             >
               <button className="edit">Edit</button>
             </Link>
-            <button className="delete">Delete</button>
+            <button className="delete" onClick={handleDelete}>
+              Delete
+            </button>
           </div>
         </div>
 
