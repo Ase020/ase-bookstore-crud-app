@@ -24,7 +24,7 @@ const Home = () => {
         setLoading(false);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [books.length]);
 
   return (
     <div className="home">

@@ -39,7 +39,6 @@ const Book = () => {
         res.json();
         if (res.ok) {
           navigate("/");
-          alert("Book deleted successfully!");
         } else {
           throw new Error("Failed to delete book");
         }
