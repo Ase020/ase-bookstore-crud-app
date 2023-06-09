@@ -32,7 +32,12 @@ const Navbar = () => {
         <Link className="add" to="book/add">
           <AddOutlined /> <AutoStoriesOutlined />
         </Link>
-        <SearchOutlined style={{ cursor: "pointer" }} />
+
+        <SearchOutlined
+          style={{
+            cursor: "pointer",
+          }}
+        />
         <PersonOutlined style={{ cursor: "pointer" }} />
         <LightModeOutlined style={{ cursor: "pointer" }} />
         {/* <DarkModeOutlined /> */}

@@ -36,7 +36,6 @@ const Add = () => {
       .then((res) => res.json())
       .then((data) => console.log(data));
 
-    console.log(bookObj);
     e.target.reset();
     navigate("/");
   };
