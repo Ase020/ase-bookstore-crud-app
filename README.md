@@ -33,6 +33,8 @@ To set up the project, follow these steps:
 
 - Visit [aseBookstore](https://ase-bookstore-crud-app.vercel.app){:target="\_blank" rel="noopener"} on browser and manage your books on our interactive app.
 
+[GitHub](https://github.com){:target="\_blank"}
+
 ## Acknowledgements
 
 This project was developed as Sinatra-ActiveRecode project assignment. Special thanks to my technical mentor Solomon Kitonyi for his guidance and support.
