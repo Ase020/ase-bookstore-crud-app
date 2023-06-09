@@ -40,5 +40,3 @@ This project was developed as Sinatra-ActiveRecode project assignment. Special t
 ## Author
 
 Felix Nyalenda - Software Engineer
-
-<a href="https://ase-bookstore-crud-app.vercel.app" target="_blank">aseBookstore</a>
