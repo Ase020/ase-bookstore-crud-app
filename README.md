@@ -21,8 +21,8 @@ The project includes three models: User, Review, and Book. The relationships bet
 
 The project is hosted on two separate repositories:
 
-- The [React Frontend](https://github.com/Ase020/ase-bookstore-crud-app) deployed at the [aseBookstore](https://ase-bookstore-crud-app.vercel.app)
-- The [Ruby Backend](https://github.com/Ase020/phase-3-sinatra-react-project)
+- The [React Frontend](https://github.com/Ase020/ase-bookstore-crud-app) deployed at the [aseBookstore](https://ase-bookstore-crud-app.vercel.app){:target="\_blank" rel="noopener"}
+- The [Ruby Backend](https://github.com/Ase020/phase-3-sinatra-react-project){:target="\_blank" rel="noopener"}
 
 To set up the project, follow these steps:
 
@@ -31,7 +31,7 @@ To set up the project, follow these steps:
 - Run `bundle exec rake db:seed` to populate the database tables with data already in the `seeds.rb`file.
 - To start the backend server, run `bundle exec rake server`, if successful, the server should start running on your `localhost` port number: `9292`
 
-- Visit [aseBookstore](https://ase-bookstore-crud-app.vercel.app) on browser and manage your books on our interactive app.
+- Visit [aseBookstore](https://ase-bookstore-crud-app.vercel.app){:target="\_blank" rel="noopener"} on browser and manage your books on our interactive app.
 
 ## Acknowledgements
 
